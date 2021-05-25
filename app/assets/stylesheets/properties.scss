@@ -1,3 +1,12 @@
-// Place all the styles related to the properties controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#note {
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+}
+
+.property_note {
+  border-bottom: 1px solid;
+}
+
+.property_show {
+  padding: 10px 0 25px 30px;
+}
