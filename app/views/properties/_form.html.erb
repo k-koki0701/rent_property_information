@@ -12,45 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :property_name %>
+    <%= form.label :物件名 %>
     <%= form.text_field :property_name %>
   </div>
 
   <div class="field">
-    <%= form.label :rent %>
-    <%= form.number_field :rent %>
+    <%= form.label :賃料 %>
+    <%= form.number_field :rent %>円
   </div>
 
   <div class="field">
-    <%= form.label :adress %>
+    <%= form.label :住所 %>
     <%= form.text_field :adress %>
   </div>
 
   <div class="field">
-    <%= form.label :building_age %>
-    <%= form.number_field :building_age %>
+    <%= form.label :築年数 %>
+    <%= form.number_field :building_age %>年
   </div>
 
   <div class="field">
-    <%= form.label :note %>
+    <%= form.label :備考 %>
     <%= form.text_area :note %>
   </div>
 
-  <%= form.fields_for :closest_stations do |station| %>
-    <h3>最寄り駅１</h3>
-    <%= station.label :route_name, '路線名' %>
-    <%= station.text_field :route_name %>
-    <%= station.label :station_name, '駅名' %>
-    <%= station.text_field :station_name %>
-    <%= station.label :time, '徒歩分数' %>
-    <%= station.text_field :minites_walk %>
-    <h3>最寄り駅２</h3>
-    <%= station.label :route_name, '路線名' %>
-    <%= station.text_field :route_name %>
-    <%= station.label :station_name, '駅名' %>
-    <%= station.text_field :station_name %>
-    <%= station.label :time, '徒歩分数' %>
-    <%= station.text_field :minites_walk %>
+  <%  (1..2).each do |times| %>
+  　<%= form.fields_for :closest_stations, @property.closest_stations.build do |closest_stations| %>
+     <h3>最寄り駅<%= times %></h3>
+     <%= closest_stations.label :route_name, '路線名' %>
+     <%= closest_stations.text_field :route_name %>
+     <%= closest_stations.label :station_name, '駅名' %>
+     <%= closest_stations.text_field :station_name %>
+     <%= closest_stations.label :time, '徒歩分数' %>
+     <%= closest_stations.text_field :minites_walk %>分
+   <% end %>
   <% end %>
 
   <div class="actions">
